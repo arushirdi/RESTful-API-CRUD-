@@ -7,6 +7,20 @@ Part 2: Frontend Development
 - Task: Create a frontend application using either React that connects with your backend API. The application should enable viewing, adding, updating, and deleting users.
 //#-------------------------------------------------------//
 
+RESTful API CRUD Operations
+
+Setup Instructions
+Clone the repository:
+git clone https://github.com/arushirdi/RESTful-API-CRUD-.git
+cd RESTful-API-CRUD-/backend
+
+Create a MySQL database named   : goqiitechnologies
+
+
+# Install Dependencies: 
+npm install
+# Start the Development Server:
+npm start
 
 -----------------RUN---------
 Download Node.js
