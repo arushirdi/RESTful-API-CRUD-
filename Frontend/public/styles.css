@@ -1,0 +1,44 @@
+/* General body styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    animation: backgroundAnimation 30s ease infinite;
+  }
+  
+ 
+  
+  .container {
+    /* background: linear-gradient(45deg, #ff9a9e, #fad0c4); Initial background gradient */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: backgroundAnimation 5s infinite; /* Apply animation */
+    transition: background 0.5s ease-in-out; /* Smooth transition */
+  }
+  
+  /* Table styles */
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #333;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
