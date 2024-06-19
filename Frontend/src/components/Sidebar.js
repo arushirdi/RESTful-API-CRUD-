@@ -5,13 +5,17 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
+    <Nav className="col-md-2 d-none d-md-block sidebar">
       <div className="sidebar-sticky"></div>
       <Nav.Item>
-        <Nav.Link as={Link} to="/create-user">Create User</Nav.Link>
+        <Nav.Link as={Link} to="/create-user">
+          Create User
+        </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link as={Link} to="/user-list">User List</Nav.Link>
+        <Nav.Link as={Link} to="/user-list">
+          User List
+        </Nav.Link>
       </Nav.Item>
     </Nav>
   );

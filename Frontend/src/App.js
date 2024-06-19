@@ -1,26 +1,37 @@
-import React from 'react';
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import UserList from './components/UserList';
+import Sidebar from './components/Sidebar';
 import CreateUser from './components/CreateUser';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import UserList from './components/UserList';
+import AppNavbar from './components/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!sidebarOpen);
+    };
+
     return (
-        <Container className="mt-4">
-            <Row>
-                <Col>
-                    <h4 className="text-center">User Management System</h4>
-                </Col>
-            </Row>
-            <Row className="mt-4">
-                <Col md={4}>
-                    <CreateUser />
-                </Col>
-                <Col md={8}>
-                    <UserList />
-                </Col>
-            </Row>
-        </Container>
+        <Router>
+            <Container fluid>
+                <Row>
+                    <Col md={2}>
+                        <Sidebar isOpen={sidebarOpen} />
+                    </Col>
+                    <Col md={10}>
+                        <AppNavbar userName="Arushirdi" onToggleSidebar={toggleSidebar} />
+                        <Routes>
+                            <Route path="/create-user" element={<CreateUser />} />
+                            <Route path="/user-list" element={<UserList />} />
+                        </Routes>
+                    </Col>
+                </Row>
+            </Container>
+        </Router>
     );
 };
 
