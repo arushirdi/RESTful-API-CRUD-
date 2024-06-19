@@ -20,13 +20,18 @@ const UserList = () => {
             .then(response => {
                 const formattedUsers = response.data.map(user => ({
                     ...user,
-                    dob: new Date(user.dob).toLocaleDateString()
+                    dob: user.dob ? formatDate(new Date(user.dob)) : '' // Format date if available
                 }));
                 setUsers(formattedUsers);
             })
             .catch(error => {
                 console.error('Error fetching users:', error);
             });
+    };
+
+    const formatDate = (date) => {
+        const options = { month: 'numeric', day: 'numeric', year: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
     };
 
     const data = React.useMemo(() => users, [users]);
@@ -89,7 +94,10 @@ const UserList = () => {
     };
 
     const handleEdit = (user) => {
-        setSelectedUser(user);
+        setSelectedUser({
+            ...user,
+            dob: user.dob ? new Date(user.dob).toISOString().substr(0, 10) : '' // Convert date to ISO string for input value
+        });
         setShowEditModal(true);
     };
 
@@ -124,18 +132,6 @@ const UserList = () => {
             });
     };
 
-
-
-
-
-
-
-
-
-
-
-
-    
     const handleSaveChanges = () => {
         axios.put(`http://localhost:3000/users/${selectedUser.id}`, selectedUser)
             .then(response => {
